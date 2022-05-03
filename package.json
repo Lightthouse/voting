@@ -1,0 +1,44 @@
+{
+  "name": "voting",
+  "version": "0.8.0",
+  "description": "solidity and hardhat",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx hardhat coverage",
+    "compile": "npx hardhat clean && npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost",
+    "deploy:rinkeby": "npx hardhat run scripts/deploy.js --network rinkeby",
+    "refresh": "npx hardhat clean && npx hardhat compile && npx hardhat run scripts/deploy.js --network localhost",
+
+    "create": " npx hardhat election-create --campaign gd2022 --candidate1 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E --candidate2 0xdD2FD4581271e230360230F9337D5c0430Bf44C0 --candidate3 0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199 --network localhost",
+    "candidates": "npx hardhat candidates --campaign gd2022 --network localhost",
+    "campaign": "npx hardhat election-info --campaign gd2022 --network localhost",
+    "vote": "npx hardhat vote --campaign gd2022 --candidate 1 --network localhost && npx hardhat vote --campaign gd2022 --candidate 2 --account 0x976ea74026e726554db657fa54763abd0c3a0aa9 --network localhost && npx hardhat vote --campaign gd2022 --candidate 3 --account 0x14dc79964da2c08b23698b3d3cc7ca32193d9955 --network localhost",
+    "balance": "npx hardhat withdraw-balance --network localhost",
+    "withdraw": "npx hardhat withdraw --network localhost"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lightthouse/voting.git"
+  },
+  "keywords": [
+    "solidity",
+    "voting",
+    "hardhat"
+  ],
+  "author": "Stephan",
+  "homepage": "https://github.com/Lightthouse/voting#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "hardhat": "^2.9.1"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.1",
+    "solidity-coverage": "^0.7.20",
+    "solidity-docgen": "^0.6.0-beta.10"
+  }
+}
